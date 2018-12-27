@@ -8,7 +8,7 @@ WORKDIR /home/elsearch
 ENV ES_TMPDIR=/home/elsearch/elasticsearch.tmp
 
 RUN wget -q -O - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-${ek_version}.tar.gz \
- |  tar -zx elasticsearch-${ek_version}.tar.gz \
+ |  tar -zx \
  && mv elasticsearch-${ek_version} elasticsearch \
  && mkdir -p ${ES_TMPDIR} \
  && wget -q -O - https://artifacts.elastic.co/downloads/kibana/kibana-oss-${ek_version}-linux-x86_64.tar.gz \

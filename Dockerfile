@@ -7,11 +7,11 @@ RUN apk add --quiet --no-progress --no-cache nodejs java-jna-native openjdk8-jre
 WORKDIR /home/elsearch
 ENV ES_TMPDIR=/home/elsearch/elasticsearch.tmp
 
-RUN wget -q -O - https://elasticsearch-oss-6.4.0.tar.gz \
- |  tar -zx \
+RUN wget -q -O - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-${ek_version}.tar.gz \
+ |  tar -zx elasticsearch-${ek_version}.tar.gz \
  && mv elasticsearch-${ek_version} elasticsearch \
  && mkdir -p ${ES_TMPDIR} \
- && wget -q -O - https://kibana-oss-6.4.0-linux-x86_64.tar.gz \
+ && wget -q -O - https://artifacts.elastic.co/downloads/kibana/kibana-oss-${ek_version}-linux-x86_64.tar.gz \
  |  tar -zx \
  && mv kibana-${ek_version}-linux-x86_64 kibana \
  && rm -f kibana/node/bin/node kibana/node/bin/npm \
